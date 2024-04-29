@@ -1,0 +1,14 @@
+#Variaveis de ambiente
+*.env
+
+# Binarios
+*.exe
+*.dil
+*.so
+*.dylib
+
+#Testes Binarios
+*.test
+
+#Coverage
+*.out
