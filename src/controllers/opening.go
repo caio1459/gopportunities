@@ -10,7 +10,7 @@ import (
 )
 
 func CreateOpening(ctx *gin.Context) {
-	request := models.CreateOpeningRequest{}
+	request := models.OpeningRequest{}
 	//Pega o json da requisição e passa para o struct
 	if err = ctx.BindJSON(&request); err != nil {
 		logger.ErrF("Erro de conversão: %v", err.Error())

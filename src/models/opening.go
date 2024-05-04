@@ -33,7 +33,7 @@ type OpeningResponse struct {
 	DeletedAt time.Time `json:"deletedAt,omitempty"`
 }
 
-type CreateOpeningRequest struct {
+type OpeningRequest struct {
 	Role     string  `json:"role"`
 	Company  string  `json:"company"`
 	Location string  `json:"location"`
@@ -42,7 +42,7 @@ type CreateOpeningRequest struct {
 	Salary   float32 `json:"salary"`
 }
 
-func (c *CreateOpeningRequest) Validate() error {
+func (c *OpeningRequest) Validate() error {
 	if c.Role == "" && c.Company == "" && c.Location == "" && c.Link == "" && c.Remote == nil && c.Salary <= 0 {
 		return fmt.Errorf("corpo da requisição está vazio")
 	}
