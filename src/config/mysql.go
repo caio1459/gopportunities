@@ -11,7 +11,7 @@ import (
 
 func InitializeMySQL() (*gorm.DB, error) {
 	logger := GetLogger("mysql")
-	// Cria a dns de conexão com banco
+	// Cria o dns de conexão com banco
 	dns := fmt.Sprintf("%v:@/%v?charset=utf8&parseTime=True&loc=Local", os.Getenv("DB_USER"), os.Getenv("DB_NAME"))
 
 	//Criando conexão com banco de dados utilizando o gorm

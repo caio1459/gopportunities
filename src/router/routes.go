@@ -10,11 +10,11 @@ func initializeRoutes(router *gin.Engine) {
 	//Iniciando os controllers
 	controllers.Init()
 	//Defini um agrupamento de rotas
-	openingRoute := router.Group("/api/v1/openings")
+	openingRoute := router.Group("/api/v1")
 	{
-		openingRoute.GET("/", controllers.ShowOpening)
-		openingRoute.POST("/", controllers.CreateOpening)
-		openingRoute.PUT("/", controllers.UpdateOpening)
-		openingRoute.DELETE("/", controllers.DeleteOpening)
+		openingRoute.GET("/openings", controllers.ShowOpenings)
+		openingRoute.POST("/openings", controllers.CreateOpening)
+		openingRoute.PUT("/openings", controllers.UpdateOpening)
+		openingRoute.DELETE("/openings", controllers.DeleteOpening)
 	}
 }

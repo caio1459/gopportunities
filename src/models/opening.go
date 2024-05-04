@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/caio1459/gopportunities/src/helpers"
@@ -9,13 +10,13 @@ import (
 
 // Espelho da tabela
 type Opening struct {
-	gorm.Model //Integar as propriedades do gorm no struct
 	Role       string
 	Company    string
 	Location   string
 	Remote     bool
 	Link       string
 	Salary     float32
+	gorm.Model //Integar as propriedades do gorm no struct
 }
 
 // Retorno em json
@@ -41,7 +42,10 @@ type CreateOpeningRequest struct {
 	Salary   float32 `json:"salary"`
 }
 
-func (c CreateOpeningRequest) Validate() error {
+func (c *CreateOpeningRequest) Validate() error {
+	if c.Role == "" && c.Company == "" && c.Location == "" && c.Link == "" && c.Remote == nil && c.Salary <= 0 {
+		return fmt.Errorf("corpo da requisição está vazio")
+	}
 	if c.Role == "" {
 		return helpers.ErrParamsIsRequired("role", "string")
 	}
