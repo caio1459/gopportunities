@@ -5,16 +5,21 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+const (
+	basePath string = "/api/v1"
+)
+
 // Inicia as rotas
 func initializeRoutes(router *gin.Engine) {
 	//Iniciando os controllers
 	controllers.Init()
 	//Defini um agrupamento de rotas
-	openingRoute := router.Group("/api/v1")
+	v1 := router.Group(basePath)
 	{
-		openingRoute.GET("/openings", controllers.ShowOpenings)
-		openingRoute.POST("/openings", controllers.CreateOpening)
-		openingRoute.PUT("/openings", controllers.UpdateOpening)
-		openingRoute.DELETE("/openings", controllers.DeleteOpening)
+		v1.GET("/openings", controllers.ListOpenings)
+		v1.GET("/opening", controllers.ShowOpening)
+		v1.POST("/openings", controllers.CreateOpening)
+		v1.PUT("/openings", controllers.UpdateOpening)
+		v1.DELETE("/openings", controllers.DeleteOpening)
 	}
 }
