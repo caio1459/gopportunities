@@ -9,7 +9,7 @@ const (
 	basePath string = "/api/v1"
 )
 
-// Inicia as rotas
+// initializeRoutes Inicia as rotas
 func initializeRoutes(router *gin.Engine) {
 	//Iniciando os controllers
 	controllers.Init()
@@ -19,7 +19,6 @@ func initializeRoutes(router *gin.Engine) {
 		v1.GET("/openings", controllers.ListOpenings)
 		v1.GET("/opening", controllers.ShowOpening)
 		v1.POST("/openings", controllers.CreateOpening)
-		v1.PUT("/openings", controllers.UpdateOpening)
 		v1.DELETE("/openings", controllers.DeleteOpening)
 	}
 }

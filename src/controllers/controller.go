@@ -6,9 +6,11 @@ import (
 )
 
 var (
-	logger *config.Logger
-	db     *gorm.DB
-	err    error
+	logger        *config.Logger
+	db            *gorm.DB
+	err           error
+	total         int64
+	returnedTotal int
 )
 
 func Init() {
